@@ -10,7 +10,7 @@
 ```
 yarn install
 ```
-3. Clonar el archivo .env.example y renombrarlo .env
+3. Clonar el archivo .env.template y renombrarlo .env
 
 4. Levantar la base de datos
 
