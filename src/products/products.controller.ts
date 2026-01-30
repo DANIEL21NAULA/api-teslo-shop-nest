@@ -30,7 +30,6 @@ export class ProductsController {
 
   @Get(':term')
   findOne(@Param('term') term: string) {
-    console.log(term);
     return this.productsService.findOnePlain(term);
   }
 
