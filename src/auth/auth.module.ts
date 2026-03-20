@@ -1,0 +1,46 @@
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { PassportModule } from '@nestjs/passport';
+import { AuthService } from './auth.service';
+import { AuthController } from './auth.controller';
+import { User } from './entities/user.entity';
+import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtStrategy } from './strategies/jwt.strategy';
+// import { JwtModule } from '@nestjs/jwt';
+
+@Module({
+  controllers: [AuthController],
+  providers: [AuthService, JwtStrategy],
+  imports: [
+    ConfigModule,
+    TypeOrmModule.forFeature([User]), //! Esto crea nuestra entity en la base de datos
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => {
+        // console.log('JWT_SECRET', configService.get('JWT_SECRET'));
+        return {
+          secret: configService.get('JWT_SECRET'),
+          signOptions: {
+            expiresIn: '2h',
+          },
+        };
+      },
+    }),
+    // JwtModule.register({
+    //   secret: process.env.JWT_SECRET,
+    //   signOptions: {
+    //     expiresIn: '2h',
+    //   },
+    // }),
+  ],
+  exports: [
+    TypeOrmModule, //! exports para que la entity pueda ser utilizado en otros modulos
+    JwtStrategy,
+    PassportModule,
+    JwtModule,
+  ],
+})
+export class AuthModule {}
