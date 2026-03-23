@@ -1,0 +1,407 @@
+{
+  "info": {
+    "_postman_id": "bff25562-187b-4c0b-be43-a012358e5d33",
+    "name": "04-teslo-shop",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "14154038"
+  },
+  "item": [
+    {
+      "name": "Product - Create",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjZTkzZTYwLWRlMjAtNGE2ZC05ZjU5LTg1MWUyYTIxY2M0YSIsImlhdCI6MTc3Mzk1OTMwOSwiZXhwIjoxNzczOTY2NTA5fQ.965ks21jdQ-RE2OhcpQwPRZXCSitTHdDHb-GG7Pa6uU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"pants pokemon ash 3\",\r\n    \"sizes\": [\"xs\",\"s\",\"l\"],\r\n    \"gender\": \"men\",\r\n    \"price\": 45.99,\r\n    \"tags\": [\"ropa\", \"men\"],\r\n    \"images\": [\r\n        \"http://image1.jpg\",\r\n        \"http://image2.jpg\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Products - All products",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjZTkzZTYwLWRlMjAtNGE2ZC05ZjU5LTg1MWUyYTIxY2M0YSIsImlhdCI6MTc3Mzk1MTAyMCwiZXhwIjoxNzczOTU4MjIwfQ.MzhvPa7ayd-zyuq4LLWEPpWe1MC4ajILVKacSd75tNM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products?limit=10&offset=0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "offset",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Product - Get product",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/18fb272a-61be-4de5-bcaa-25a9016f03b3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products",
+            "18fb272a-61be-4de5-bcaa-25a9016f03b3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Product - Delete product",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/359fcc25-2f01-4c07-8c8f-eaa436218fe7",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products",
+            "359fcc25-2f01-4c07-8c8f-eaa436218fe7"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Product - update product",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"price\": 10.50,\r\n    \"slug\": \"shirt's 123\",\r\n    \"tags\": [\"ropa\", \"men\"],\r\n    \"images\": [\r\n        \"http://image1.jpg\",\r\n        \"http://image2.jpg\",\r\n        \"http://image3.jpg\"\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products/359fcc25-2f01-4c07-8c8f-eaa436218fe7",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products",
+            "359fcc25-2f01-4c07-8c8f-eaa436218fe7"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Product - seed product",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/seed",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "seed"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Product - Save image storage local",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "7ac47bd2-774a-40b8-a10d-ce925f55dc13",
+              "src": "/C:/Users/NAULAD/Downloads/2025-10-20 17_37_54-Certificado de finalización del curso de Udemy _ Udemy.png"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/files/product",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "files",
+            "product"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Product - image product",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/files/product/7652426-00-A_1.jpg",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "files",
+            "product",
+            "7652426-00-A_1.jpg"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User - Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"nauladanielj@gmail.com\",\r\n    \"password\": \"Abc123\",\r\n    \"fullName\": \"Daniel Naula\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"melisaj@gmail.com\",\r\n    \"password\": \"Abc123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Rute private example",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjZTkzZTYwLWRlMjAtNGE2ZC05ZjU5LTg1MWUyYTIxY2M0YSIsImlhdCI6MTc3MzkzNzc5NCwiZXhwIjoxNzczOTQ0OTk0fQ.to04oyJq-PjZXZGJgnz3nSxYJE1aIndodARVz_3OBkI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/auth/private",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "private"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "RUTE PRIVATE EXAMPLE 3",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjZTkzZTYwLWRlMjAtNGE2ZC05ZjU5LTg1MWUyYTIxY2M0YSIsImlhdCI6MTc3Mzk1MTAyMCwiZXhwIjoxNzczOTU4MjIwfQ.MzhvPa7ayd-zyuq4LLWEPpWe1MC4ajILVKacSd75tNM",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/auth/private3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "private3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Auth - check auth status",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFmOGZiNDhjLTJjOGQtNGE5YS05MDVmLTFjMDljNDE2YzJhMyIsImlhdCI6MTc3NDAyMzQ1MCwiZXhwIjoxNzc0MDMwNjUwfQ.f_wj5KbZd8PwmJyLkshpbsPBitQCWio8-qhTycGuW7c",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/auth/check-auth-status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "check-auth-status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
